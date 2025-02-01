@@ -1,1 +1,26 @@
+name: Example GitHub Action
 
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:  # Allows manual triggering
+
+jobs:
+  example-job:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: 23f2001915@ds.study.iitm.ac.in
+        run: echo "Hello, world!"
+
+      - name: Commit changes
+        run: |
+          git config --local user.email "23f2001915@ds.study.iitm.ac.in"
+          git config --local user.name "github-actions[bot]"
+          git add .
+          git commit -m "Commit message"
+          git push
